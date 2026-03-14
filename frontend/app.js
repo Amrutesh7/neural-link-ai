@@ -66,7 +66,7 @@ clearBtn.addEventListener('click', async() => {
       // call backend to clear memory
       console.log("Sending clear request....");
 
-      const responce = await fetch("http://127.0.0.1:8000/clear", {
+      const responce = await fetch("https://neural-link-ai.onrender.com/clear", {
       method: "POST",
       headers: { 
           "Content-Type": "application/json" },
