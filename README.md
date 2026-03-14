@@ -46,55 +46,6 @@ Backend API: https://neural-link-ai.onrender.com
 
 ---
 
-## Project Structure
-
-# NeuralLink AI Terminal
-
-An AI-powered **cyber-style terminal interface** built with **FastAPI** and **Groq LLM API**, featuring session-based memory and an interactive futuristic UI.
-
-This project simulates a **neural terminal system** where users interact with an AI assistant through a visually immersive command-style interface.
-
----
-
-## Demo
-
-Frontend: *(Add after deployment)*  
-Backend API: https://neural-link-ai.onrender.com
-
----
-
-## Features
-
-- AI chat powered by **Groq LLM API**
-- **FastAPI backend** for handling requests
-- **Session-based memory** to maintain conversation context
-- **Cyberpunk-style interactive UI**
-- **Latency tracking** for each response
-- **Token estimation**
-- **Session reset / memory wipe**
-- Real-time **typing indicator**
-- Fully separated **frontend + backend architecture**
-
----
-
-## Tech Stack
-
-### Frontend
-- HTML
-- CSS
-- JavaScript
-
-### Backend
-- Python
-- FastAPI
-- Groq LLM API
-- Uvicorn
-
-### Deployment
-- Backend: Render
-- Frontend: Vercel / Netlify
-
----
 
 ## Project Structure
 
