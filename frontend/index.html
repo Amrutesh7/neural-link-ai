@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEURAL//LINK — AI TERMINAL</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Animated Background Grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- Floating Particles -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Corner Decorations -->
+  <div class="corner corner-tl">
+    <svg viewBox="0 0 60 60"><path d="M0 60 L0 0 L60 0" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M0 40 L0 0 L40 0" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/></svg>
+  </div>
+  <div class="corner corner-tr">
+    <svg viewBox="0 0 60 60"><path d="M60 60 L60 0 L0 0" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M60 40 L60 0 L20 0" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/></svg>
+  </div>
+  <div class="corner corner-bl">
+    <svg viewBox="0 0 60 60"><path d="M0 0 L0 60 L60 60" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M0 20 L0 60 L40 60" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/></svg>
+  </div>
+  <div class="corner corner-br">
+    <svg viewBox="0 0 60 60"><path d="M60 0 L60 60 L0 60" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M60 20 L60 60 L20 60" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/></svg>
+  </div>
+
+  <!-- Main Terminal -->
+  <div class="terminal-wrapper">
+
+    <!-- Header -->
+    <header class="terminal-header">
+      <div class="header-left">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text">NEURAL LINK ACTIVE</span>
+        </div>
+        <div class="session-id">SESSION_<span id="session-id">——</span></div>
+      </div>
+
+      <div class="header-center">
+        <div class="logo-container">
+          <div class="logo-hex">
+            <svg viewBox="0 0 100 100">
+              <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" stroke-width="1"/>
+              <polygon points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+            </svg>
+            <div class="logo-inner-ring"></div>
+          </div>
+          <div class="logo-text">
+            <span class="logo-main">NEURAL<span class="logo-slash">//</span>LINK</span>
+            <span class="logo-sub">COGNITIVE INTERFACE v4.2.1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="stats-cluster">
+          <div class="stat-item">
+            <span class="stat-label">LATENCY</span>
+            <span class="stat-value" id="latency-val">—ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">TOKENS</span>
+            <span class="stat-value" id="token-count">0</span>
+          </div>
+        </div>
+        <button class="header-btn" id="clear-btn" title="Clear session">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,6 5,6 21,6"/><path d="M19,6l-1,14H6L5,6"/><path d="M10,11v6M14,11v6"/><path d="M9,6V4h6v2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Data Stream Ticker -->
+    <div class="data-ticker">
+      <div class="ticker-track">
+        <span>NEURAL NETWORK ONLINE</span>
+        <span class="ticker-sep">◈</span>
+        <span>QUANTUM ENTANGLEMENT STABLE</span>
+        <span class="ticker-sep">◈</span>
+        <span>CONSCIOUSNESS BRIDGE ACTIVE</span>
+        <span class="ticker-sep">◈</span>
+        <span>ENCRYPTION LAYER: AES-512</span>
+        <span class="ticker-sep">◈</span>
+        <span>MEMORY BANKS LOADED</span>
+        <span class="ticker-sep">◈</span>
+        <span>INFERENCE ENGINE: READY</span>
+        <span class="ticker-sep">◈</span>
+        <span>NEURAL NETWORK ONLINE</span>
+        <span class="ticker-sep">◈</span>
+        <span>QUANTUM ENTANGLEMENT STABLE</span>
+        <span class="ticker-sep">◈</span>
+        <span>CONSCIOUSNESS BRIDGE ACTIVE</span>
+        <span class="ticker-sep">◈</span>
+        <span>ENCRYPTION LAYER: AES-512</span>
+        <span class="ticker-sep">◈</span>
+      </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <main class="chat-area" id="chat-area">
+      <!-- Boot Sequence -->
+      <div class="boot-sequence" id="boot-sequence">
+        <div class="boot-line" style="--delay:0.1s">▸ Initializing neural substrate...</div>
+        <div class="boot-line" style="--delay:0.5s">▸ Calibrating language model...</div>
+        <div class="boot-line" style="--delay:0.9s">▸ Establishing secure channel...</div>
+        <div class="boot-line" style="--delay:1.3s">▸ Loading cognitive modules... <span class="boot-ok">[ OK ]</span></div>
+        <div class="boot-line" style="--delay:1.7s">▸ System ready. Awaiting input.</div>
+      </div>
+
+      <!-- Messages will be injected here -->
+      <div class="messages-container" id="messages-container"></div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typing-indicator">
+        <div class="typing-avatar">
+          <div class="avatar-ring"></div>
+          <span>AI</span>
+        </div>
+        <div class="typing-bubble">
+          <div class="typing-label">PROCESSING<span class="ellipsis-dots"></span></div>
+          <div class="typing-bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Input Zone -->
+    <div class="input-zone">
+      <div class="input-outer">
+        <div class="input-prefix">
+          <span class="prefix-arrow">▸</span>
+          <span class="prefix-label">INPUT</span>
+        </div>
+
+        <div class="input-field-wrapper" id="input-wrapper">
+          <div class="input-scan-line"></div>
+          <textarea
+            id="message-input"
+            class="message-input"
+            placeholder="Enter query to NEURAL//LINK..."
+            rows="1"
+            maxlength="4000"
+          ></textarea>
+          <div class="char-counter"><span id="char-count">0</span>/4000</div>
+        </div>
+
+        <button class="send-btn" id="send-btn" disabled>
+          <div class="send-btn-inner">
+            <svg class="send-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="send-ring"></div>
+          </div>
+          <span class="send-label">TRANSMIT</span>
+        </button>
+      </div>
+
+      <!-- Bottom Status Bar -->
+      <div class="status-bar">
+        <div class="status-bar-left">
+          <span class="sb-item"><span class="sb-dot active"></span>CONNECTED</span>
+          <span class="sb-sep">|</span>
+          <span class="sb-item">MODEL: NEURAL-LINK-4.2</span>
+        </div>
+        <div class="status-bar-right">
+          <span class="sb-item">PRESS ENTER TO SEND · SHIFT+ENTER FOR NEWLINE</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
