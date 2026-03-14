@@ -2,7 +2,7 @@
    NEURAL//LINK — APP LOGIC
    ============================================================ */
 
-const API_URL = 'http://127.0.0.1:8000/chat';
+const API_URL = 'https://neural-link-ai.onrender.com/chat';
 
 // ── DOM Refs ──────────────────────────────────────────────────
 const chatArea         = document.getElementById('chat-area');
