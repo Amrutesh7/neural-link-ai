@@ -8,7 +8,7 @@ This project simulates a **neural terminal system** where users interact with an
 
 ## Demo
 
-Frontend: *(Add after deployment)*  
+Frontend: https://neural-link-ai.vercel.app/  
 Backend API: https://neural-link-ai.onrender.com
 
 ---
